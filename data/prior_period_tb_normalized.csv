@@ -1,0 +1,32 @@
+account_code,account_name,debit_usd,credit_usd,currencies,in_coa
+1110,Cash and Cash Equivalents,5143269.00,0.00,USD|EUR|GBP,true
+1120,Accounts Receivable,5420000.00,0.00,USD,true
+1121,Allowance for Doubtful Accounts,0.00,155000.00,USD,true
+1130,Inventory - Raw Materials,1750000.00,0.00,USD,true
+1131,Inventory - Finished Goods,3120000.00,0.00,USD,true
+1140,Prepaid Expenses,210000.00,0.00,USD,true
+1150,Other Current Assets,65000.00,0.00,USD,true
+1210,"Property, Plant & Equipment - Cost",11800000.00,0.00,USD,true
+1211,Accumulated Depreciation - PPE,0.00,3350000.00,USD,true
+1220,Intangible Assets - Cost,2800000.00,0.00,USD,true
+1221,Accumulated Amortization,0.00,760000.00,USD,true
+1230,Goodwill,3500000.00,0.00,USD,true
+1240,Long-term Investments,600000.00,0.00,USD,true
+1250,Deferred Tax Asset,285000.00,0.00,USD,true
+2110,Accounts Payable,0.00,2410000.00,USD,true
+2120,Accrued Expenses,0.00,1020000.00,USD,true
+2130,Short-term Debt,0.00,1200000.00,USD,true
+2140,Current Portion of Long-term Debt,0.00,800000.00,USD,true
+2150,Income Tax Payable,0.00,315000.00,USD,true
+2160,Deferred Revenue,0.00,540000.00,USD,true
+2170,Intercompany Payable,0.00,980000.00,USD,true
+2210,Long-term Debt,0.00,7300000.00,USD,true
+2220,Lease Liability - Long-term,0.00,1410000.00,USD,true
+2230,Deferred Tax Liability,0.00,460000.00,USD,true
+2240,Pension Obligations,0.00,870000.00,USD,true
+3100,Common Stock,0.00,1000000.00,USD,true
+3110,Additional Paid-in Capital,0.00,4500000.00,USD,true
+3200,Retained Earnings,0.00,5180000.00,USD,true
+3310,FX Translation Reserve,0.00,95000.00,USD,true
+3400,Treasury Stock,420000.00,0.00,USD,true
+6905,Sundry Operating Expenses,132000.00,0.00,USD,false

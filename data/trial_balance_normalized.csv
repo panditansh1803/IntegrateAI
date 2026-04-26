@@ -1,0 +1,60 @@
+account_code,account_name,debit_usd,credit_usd,currencies,in_coa
+1110,Cash and Cash Equivalents,5566113.00,0.00,USD|EUR|GBP,true
+1120,Accounts Receivable,6180500.00,0.00,USD,true
+1121,Allowance for Doubtful Accounts,0.00,185000.00,USD,true
+1130,Inventory - Raw Materials,1920000.00,0.00,USD,true
+1131,Inventory - Finished Goods,3410000.00,0.00,USD,true
+1140,Prepaid Expenses,245000.00,0.00,USD,true
+1150,Other Current Assets,78400.00,0.00,USD,true
+1210,"Property, Plant & Equipment - Cost",17007700.00,0.00,USD,true
+1211,Accumulated Depreciation - PPE,0.00,4200000.00,USD,true
+1220,Intangible Assets - Cost,2800000.00,0.00,USD,true
+1221,Accumulated Amortization,0.00,980000.00,USD,true
+1230,Goodwill,3500000.00,0.00,USD,true
+1240,Long-term Investments,750000.00,0.00,USD,true
+1250,Deferred Tax Asset,320000.00,0.00,USD,true
+2110,Accounts Payable,0.00,2840000.00,USD,true
+2120,Accrued Expenses,0.00,1150000.00,USD,true
+2130,Short-term Debt,0.00,1500000.00,USD,true
+2140,Current Portion of Long-term Debt,0.00,800000.00,USD,true
+2150,Income Tax Payable,0.00,420000.00,USD,true
+2160,Deferred Revenue,0.00,680000.00,USD,true
+2170,Intercompany Payable,0.00,1240000.00,USD,true
+2210,Long-term Debt,0.00,6500000.00,USD,true
+2220,Lease Liability - Long-term,0.00,1320000.00,USD,true
+2230,Deferred Tax Liability,0.00,485000.00,USD,true
+2240,Pension Obligations,0.00,910000.00,USD,true
+3100,Common Stock,0.00,1000000.00,USD,true
+3110,Additional Paid-in Capital,0.00,4500000.00,USD,true
+3200,Retained Earnings,0.00,7240000.00,USD,true
+3310,FX Translation Reserve,0.00,180000.00,USD,true
+3400,Treasury Stock,420000.00,0.00,USD,true
+4100,Product Revenue,0.00,28500000.00,USD,true
+4110,Service Revenue,0.00,6200000.00,USD,true
+4200,Sales Returns and Allowances,340000.00,0.00,USD,true
+4300,Other Operating Revenue,0.00,125000.00,USD,true
+5100,COGS - Materials,9800000.00,0.00,USD,true
+5110,COGS - Direct Labor,4200000.00,0.00,USD,true
+5120,COGS - Manufacturing Overhead,2650000.00,0.00,USD,true
+6100,Salaries and Wages,5400000.00,0.00,USD,true
+6110,Employee Benefits,920000.00,0.00,USD,true
+6120,Payroll Taxes,410000.00,0.00,USD,true
+6200,Rent Expense,480000.00,0.00,USD,true
+6210,Utilities,115000.00,0.00,USD,true
+6220,Office Supplies,62000.00,0.00,USD,true
+6300,Marketing and Advertising,980000.00,0.00,USD,true
+6310,Travel and Entertainment,283500.00,0.00,USD,true
+6400,Professional Fees,520000.00,0.00,USD,true
+6410,Insurance,180000.00,0.00,USD,true
+6500,Depreciation Expense,850000.00,0.00,USD,true
+6510,Amortization Expense,220000.00,0.00,USD,true
+6600,Bad Debt Expense,95000.00,0.00,USD,true
+6900,Other Operating Expenses,140000.00,0.00,USD,true
+7100,Interest Income,0.00,62000.00,USD,true
+7200,Interest Expense,410000.00,0.00,USD,true
+7300,FX Gain/Loss - Realized,85000.00,0.00,USD,true
+7310,FX Gain/Loss - Unrealized,0.00,42000.00,USD,true
+7400,Gain/Loss on Disposal of Assets,0.00,18000.00,USD,true
+8100,Current Tax Expense,680000.00,0.00,USD,true
+8200,Deferred Tax Expense,120000.00,0.00,USD,true
+9999,Suspense - Unmapped,12400.00,0.00,USD,false

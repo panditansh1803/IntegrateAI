@@ -1,0 +1,948 @@
+{
+  "run_id": "RUN-20260426-140224",
+  "pipeline_version": "1.0.0",
+  "started_at": "2026-04-26T14:02:24.424573Z",
+  "completed_at": "2026-04-26T14:02:24.434714Z",
+  "total_entries": 10,
+  "accepted": 7,
+  "rejected": 3,
+  "quarantined": 0,
+  "coa_loaded": true,
+  "coa_account_count": 60,
+  "ic_check_active": true,
+  "ic_check_skipped_reason": null,
+  "warnings": [],
+  "results": [
+    {
+      "trace_id": "MAA-20260426-0001",
+      "entry_id": "JE-001",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-001"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "850000.00",
+            "credit_total": "850000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-001",
+        "description": "Accrue Q4 bonus pool",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "6100",
+            "debit": "850000.00",
+            "credit": "0.00",
+            "memo": "Bonus accrual"
+          },
+          {
+            "line_number": 2,
+            "account_code": "2120",
+            "debit": "0.00",
+            "credit": "850000.00",
+            "memo": "Accrual offset"
+          }
+        ],
+        "prepared_by": "Finance team — bonus accrual workbook v3",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.427535Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0002",
+      "entry_id": "JE-002",
+      "status": "REJECTED",
+      "error_codes": [
+        "ERR_UNBALANCED"
+      ],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-002"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": false,
+          "error_code": "ERR_UNBALANCED",
+          "detail": {
+            "debit_total": "28500.00",
+            "credit_total": "25000.00",
+            "delta": "3500.00",
+            "direction": "debits exceed credits",
+            "debit_lines": [
+              {
+                "line": 1,
+                "account": "6300",
+                "amount": "28500.00"
+              }
+            ],
+            "credit_lines": [
+              {
+                "line": 2,
+                "account": "6310",
+                "amount": "25000.00"
+              }
+            ]
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": {
+        "summary": "Entry JE-002 was rejected due to: ERR_UNBALANCED.",
+        "detail": "Entry JE-002: The total debits and total credits for this entry do not match. Please review the line amounts and ensure they balance before resubmission.",
+        "severity": "HIGH",
+        "suggested_correction": null,
+        "risk_flags": [],
+        "llm_suggestion_verified": false
+      },
+      "llm_status": "OK",
+      "llm_model": "mock-explainer-v1",
+      "llm_latency_ms": 0,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-002",
+        "description": "Reclassify marketing spend wrongly booked to T&E",
+        "entry_date": "2024-12-28",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "6300",
+            "debit": "28500.00",
+            "credit": "0.00",
+            "memo": "Move from T&E"
+          },
+          {
+            "line_number": 2,
+            "account_code": "6310",
+            "debit": "0.00",
+            "credit": "25000.00",
+            "memo": "Reverse from T&E"
+          }
+        ],
+        "prepared_by": "Controller note 2024-12-28",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.429942Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0003",
+      "entry_id": "JE-003",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-003"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "11200.00",
+            "credit_total": "11200.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-003",
+        "description": "FX revaluation of EUR cash balance to period-end rate",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "1110",
+            "debit": "11200.00",
+            "credit": "0.00",
+            "memo": "EUR cash uplift"
+          },
+          {
+            "line_number": 2,
+            "account_code": "7310",
+            "debit": "0.00",
+            "credit": "11200.00",
+            "memo": "Unrealized FX gain"
+          }
+        ],
+        "prepared_by": "FX reval calc",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.430464Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0004",
+      "entry_id": "JE-004",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-004"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "45000.00",
+            "credit_total": "45000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-004",
+        "description": "Bad debt provision top-up",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "6600",
+            "debit": "45000.00",
+            "credit": "0.00",
+            "memo": "Top-up reserve"
+          },
+          {
+            "line_number": 2,
+            "account_code": "1121",
+            "debit": "0.00",
+            "credit": "45000.00",
+            "memo": "Increase allowance"
+          }
+        ],
+        "prepared_by": "AR aging review",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.430982Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0005",
+      "entry_id": "JE-005",
+      "status": "REJECTED",
+      "error_codes": [
+        "ERR_INVALID_ACCOUNT"
+      ],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-005"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "18500.00",
+            "credit_total": "18500.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": false,
+          "error_code": "ERR_INVALID_ACCOUNT",
+          "detail": {
+            "invalid_codes": [
+              {
+                "line_number": 1,
+                "account_code": "6315",
+                "memo": "Conf travel"
+              }
+            ],
+            "inactive_codes": [],
+            "valid_account_sample": [
+              "1110",
+              "1120",
+              "1121",
+              "1130",
+              "1131",
+              "1140",
+              "1150",
+              "1210",
+              "1211",
+              "1220",
+              "1221",
+              "1230",
+              "1240",
+              "1250",
+              "2110",
+              "2120",
+              "2130",
+              "2140",
+              "2150",
+              "2160"
+            ],
+            "total_coa_accounts": 60
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": {
+        "summary": "Entry JE-005 was rejected due to: ERR_INVALID_ACCOUNT.",
+        "detail": "Entry JE-005: One or more account codes used in this entry do not exist in the approved Chart of Accounts. Please verify each account code.",
+        "severity": "MEDIUM",
+        "suggested_correction": null,
+        "risk_flags": [],
+        "llm_suggestion_verified": false
+      },
+      "llm_status": "OK",
+      "llm_model": "mock-explainer-v1",
+      "llm_latency_ms": 0,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-005",
+        "description": "Reclass conference travel from old code",
+        "entry_date": "2024-12-15",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "6315",
+            "debit": "18500.00",
+            "credit": "0.00",
+            "memo": "Conf travel"
+          },
+          {
+            "line_number": 2,
+            "account_code": "6310",
+            "debit": "0.00",
+            "credit": "18500.00",
+            "memo": "Out of T&E"
+          }
+        ],
+        "prepared_by": "AP team",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.432015Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0006",
+      "entry_id": "JE-006",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-006"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "215000.00",
+            "credit_total": "215000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-006",
+        "description": "Depreciation catch-up — Q4",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "6500",
+            "debit": "215000.00",
+            "credit": "0.00",
+            "memo": "Q4 dep"
+          },
+          {
+            "line_number": 2,
+            "account_code": "1211",
+            "debit": "0.00",
+            "credit": "215000.00",
+            "memo": "Accum dep"
+          }
+        ],
+        "prepared_by": "Fixed asset register",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.432015Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0007",
+      "entry_id": "JE-007",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-007"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "38000.00",
+            "credit_total": "38000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-007",
+        "description": "Deferred tax true-up",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "8200",
+            "debit": "38000.00",
+            "credit": "0.00",
+            "memo": "DTA reduction"
+          },
+          {
+            "line_number": 2,
+            "account_code": "1250",
+            "debit": "0.00",
+            "credit": "38000.00",
+            "memo": "Reduce DTA"
+          }
+        ],
+        "prepared_by": "Tax provision memo",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.432577Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0008",
+      "entry_id": "JE-008",
+      "status": "REJECTED",
+      "error_codes": [
+        "ERR_IC_CIRCULAR"
+      ],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-008"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "320000.00",
+            "credit_total": "320000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": false,
+          "error_code": "ERR_IC_CIRCULAR",
+          "detail": {
+            "circular_accounts": [
+              {
+                "account_code": "2170",
+                "account_name": "Intercompany Payable",
+                "debit_lines": [
+                  {
+                    "line": 1,
+                    "amount": "320000.00"
+                  }
+                ],
+                "credit_lines": [
+                  {
+                    "line": 2,
+                    "amount": "320000.00"
+                  }
+                ]
+              }
+            ],
+            "explanation_hint": "An intercompany account that debits and credits within the same journal entry nets to zero and has no economic effect. This is a common sign of a data entry error or a prohibited circular booking."
+          }
+        }
+      ],
+      "llm_explanation": {
+        "summary": "Entry JE-008 was rejected due to: ERR_IC_CIRCULAR.",
+        "detail": "Entry JE-008: An intercompany account appears on both the debit and credit side of this entry. This creates a circular posting with no economic substance and is typically prohibited.",
+        "severity": "HIGH",
+        "suggested_correction": null,
+        "risk_flags": [
+          "circular-intercompany"
+        ],
+        "llm_suggestion_verified": false
+      },
+      "llm_status": "OK",
+      "llm_model": "mock-explainer-v1",
+      "llm_latency_ms": 0,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-008",
+        "description": "Intercompany settlement — UK sub",
+        "entry_date": "2024-12-30",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "2170",
+            "debit": "320000.00",
+            "credit": "0.00",
+            "memo": "IC payable down"
+          },
+          {
+            "line_number": 2,
+            "account_code": "2170",
+            "debit": "0.00",
+            "credit": "320000.00",
+            "memo": "IC payable up"
+          }
+        ],
+        "prepared_by": "IC reconciliation",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.433609Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0009",
+      "entry_id": "JE-009",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-009"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "75000.00",
+            "credit_total": "75000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-009",
+        "description": "Accrue legal fees for ongoing litigation",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "6400",
+            "debit": "75000.00",
+            "credit": "0.00",
+            "memo": "Legal accrual"
+          },
+          {
+            "line_number": 2,
+            "account_code": "2120",
+            "debit": "0.00",
+            "credit": "75000.00",
+            "memo": "Accrued legal"
+          }
+        ],
+        "prepared_by": "Legal memo dated 2024-12-29",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.434122Z",
+      "pipeline_version": "1.0.0"
+    },
+    {
+      "trace_id": "MAA-20260426-0010",
+      "entry_id": "JE-010",
+      "status": "ACCEPTED",
+      "error_codes": [],
+      "checks_run": [
+        {
+          "check": "DUPLICATE_ID",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "entry_id": "JE-010"
+          }
+        },
+        {
+          "check": "SCHEMA",
+          "passed": true,
+          "error_code": null,
+          "detail": {}
+        },
+        {
+          "check": "BALANCE",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "debit_total": "200000.00",
+            "credit_total": "200000.00"
+          }
+        },
+        {
+          "check": "COA_LOOKUP",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "all_accounts_valid": true,
+            "account_count": 2
+          }
+        },
+        {
+          "check": "IC_CIRCULAR",
+          "passed": true,
+          "error_code": null,
+          "detail": {
+            "ic_debit_accounts": [],
+            "ic_credit_accounts": []
+          }
+        }
+      ],
+      "llm_explanation": null,
+      "llm_status": "NOT_CALLED",
+      "llm_model": null,
+      "llm_latency_ms": null,
+      "raw_entry_snapshot": {
+        "entry_id": "JE-010",
+        "description": "Reclass long-term debt current portion",
+        "entry_date": "2024-12-31",
+        "lines": [
+          {
+            "line_number": 1,
+            "account_code": "2210",
+            "debit": "200000.00",
+            "credit": "0.00",
+            "memo": "Out of LT debt"
+          },
+          {
+            "line_number": 2,
+            "account_code": "2140",
+            "debit": "0.00",
+            "credit": "200000.00",
+            "memo": "Into current"
+          }
+        ],
+        "prepared_by": "Treasury schedule",
+        "approved_by": null,
+        "reference": null,
+        "tags": [],
+        "raw_metadata": {
+          "_original_period": "2024-Q4",
+          "_functional_currency": "USD"
+        }
+      },
+      "timestamp_utc": "2026-04-26T14:02:24.434714Z",
+      "pipeline_version": "1.0.0"
+    }
+  ]
+}

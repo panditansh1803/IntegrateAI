@@ -1,0 +1,61 @@
+account_code,account_name,account_type,is_intercompany,is_active,normal_balance,parent_code,statement,cf_category
+1110,Cash and Cash Equivalents,ASSET,false,true,DEBIT,1100,BS,Cash
+1120,Accounts Receivable,ASSET,false,true,DEBIT,1100,BS,Operating
+1121,Allowance for Doubtful Accounts,ASSET,false,true,CREDIT,1100,BS,Operating
+1130,Inventory - Raw Materials,ASSET,false,true,DEBIT,1100,BS,Operating
+1131,Inventory - Finished Goods,ASSET,false,true,DEBIT,1100,BS,Operating
+1140,Prepaid Expenses,ASSET,false,true,DEBIT,1100,BS,Operating
+1150,Other Current Assets,ASSET,false,true,DEBIT,1100,BS,TBD
+1210,"Property, Plant & Equipment - Cost",ASSET,false,true,DEBIT,1200,BS,Investing
+1211,Accumulated Depreciation - PPE,ASSET,false,true,CREDIT,1200,BS,Investing
+1220,Intangible Assets - Cost,ASSET,false,true,DEBIT,1200,BS,Investing
+1221,Accumulated Amortization,ASSET,false,true,CREDIT,1200,BS,Investing
+1230,Goodwill,ASSET,false,true,DEBIT,1200,BS,Investing
+1240,Long-term Investments,ASSET,false,true,DEBIT,1200,BS,Investing
+1250,Deferred Tax Asset,ASSET,false,true,DEBIT,1200,BS,Operating
+2110,Accounts Payable,LIABILITY,false,true,CREDIT,2100,BS,Operating
+2120,Accrued Expenses,LIABILITY,false,true,CREDIT,2100,BS,Operating
+2130,Short-term Debt,LIABILITY,false,true,CREDIT,2100,BS,Financing
+2140,Current Portion of Long-term Debt,LIABILITY,false,true,CREDIT,2100,BS,Financing
+2150,Income Tax Payable,LIABILITY,false,true,CREDIT,2100,BS,Operating
+2160,Deferred Revenue,LIABILITY,false,true,CREDIT,2100,BS,Operating
+2170,Intercompany Payable,LIABILITY,true,true,CREDIT,2100,BS,TBD
+2210,Long-term Debt,LIABILITY,false,true,CREDIT,2200,BS,Financing
+2220,Lease Liability - Long-term,LIABILITY,false,true,CREDIT,2200,BS,Financing
+2230,Deferred Tax Liability,LIABILITY,false,true,CREDIT,2200,BS,Operating
+2240,Pension Obligations,LIABILITY,false,true,CREDIT,2200,BS,Operating
+3100,Common Stock,EQUITY,false,true,CREDIT,3000,BS,Financing
+3110,Additional Paid-in Capital,EQUITY,false,true,CREDIT,3000,BS,Financing
+3200,Retained Earnings,EQUITY,false,true,CREDIT,3000,BS,
+3300,Accumulated OCI,EQUITY,false,true,CREDIT,3000,BS,
+3310,FX Translation Reserve,EQUITY,false,true,CREDIT,3300,BS,
+3400,Treasury Stock,EQUITY,false,true,DEBIT,3000,BS,Financing
+4100,Product Revenue,REVENUE,false,true,CREDIT,4000,PL,
+4110,Service Revenue,REVENUE,false,true,CREDIT,4000,PL,
+4200,Sales Returns and Allowances,REVENUE,false,true,DEBIT,4000,PL,
+4300,Other Operating Revenue,REVENUE,false,true,CREDIT,4000,PL,
+5100,COGS - Materials,EXPENSE,false,true,DEBIT,5000,PL,
+5110,COGS - Direct Labor,EXPENSE,false,true,DEBIT,5000,PL,
+5120,COGS - Manufacturing Overhead,EXPENSE,false,true,DEBIT,5000,PL,
+6100,Salaries and Wages,EXPENSE,false,true,DEBIT,6000,PL,
+6110,Employee Benefits,EXPENSE,false,true,DEBIT,6000,PL,
+6120,Payroll Taxes,EXPENSE,false,true,DEBIT,6000,PL,
+6200,Rent Expense,EXPENSE,false,true,DEBIT,6000,PL,
+6210,Utilities,EXPENSE,false,true,DEBIT,6000,PL,
+6220,Office Supplies,EXPENSE,false,true,DEBIT,6000,PL,
+6300,Marketing and Advertising,EXPENSE,false,true,DEBIT,6000,PL,
+6310,Travel and Entertainment,EXPENSE,false,true,DEBIT,6000,PL,
+6400,Professional Fees,EXPENSE,false,true,DEBIT,6000,PL,
+6410,Insurance,EXPENSE,false,true,DEBIT,6000,PL,
+6500,Depreciation Expense,EXPENSE,false,true,DEBIT,6000,PL,Operating
+6510,Amortization Expense,EXPENSE,false,true,DEBIT,6000,PL,Operating
+6600,Bad Debt Expense,EXPENSE,false,true,DEBIT,6000,PL,Operating
+6900,Other Operating Expenses,EXPENSE,false,true,DEBIT,6000,PL,
+7100,Interest Income,REVENUE,false,true,CREDIT,7000,PL,
+7200,Interest Expense,EXPENSE,false,true,DEBIT,7000,PL,
+7300,FX Gain/Loss - Realized,EXPENSE,false,true,DEBIT,7000,PL,Operating
+7310,FX Gain/Loss - Unrealized,EXPENSE,false,true,DEBIT,7000,PL,Operating
+7400,Gain/Loss on Disposal of Assets,EXPENSE,false,true,DEBIT,7000,PL,Investing
+8000,Income Tax Expense,EXPENSE,false,true,DEBIT,,PL,
+8100,Current Tax Expense,EXPENSE,false,true,DEBIT,8000,PL,Operating
+8200,Deferred Tax Expense,EXPENSE,false,true,DEBIT,8000,PL,Operating
