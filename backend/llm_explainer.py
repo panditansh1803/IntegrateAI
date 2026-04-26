@@ -333,6 +333,10 @@ def explain_errors(
     )
 
     last_error: Optional[str] = None
+    
+    # In test / mock mode, disable retry sleep to keep the suite fast.
+    effective_sleep = (lambda s: None) if provider == "mock" else time.sleep
+    
     for attempt in range(1, max_retries + 2):  # 1 initial + max_retries retries
         start_ms = int(time.time() * 1000)
         try:
@@ -376,7 +380,7 @@ def explain_errors(
                 handoff.trace_id, attempt, max_retries + 1, exc,
             )
             if attempt <= max_retries:
-                time.sleep(attempt)  # Exponential-ish backoff: 1s, 2s
+                effective_sleep(attempt)  # Exponential-ish backoff: 1s, 2s
                 continue
             return None, LLMStatus.PARSE_FAILURE, None, latency_ms
 
@@ -388,7 +392,7 @@ def explain_errors(
                 handoff.trace_id, attempt, max_retries + 1, exc,
             )
             if attempt <= max_retries:
-                time.sleep(attempt)
+                effective_sleep(attempt)
                 continue
             return None, LLMStatus.PARSE_FAILURE, None, latency_ms
 
@@ -409,7 +413,7 @@ def explain_errors(
                 handoff.trace_id, attempt, max_retries + 1, exc,
             )
             if attempt <= max_retries:
-                time.sleep(attempt)
+                effective_sleep(attempt)
                 continue
             return None, LLMStatus.TIMEOUT, None, latency_ms
 

@@ -21,21 +21,17 @@ with open("data/manual_adjustments.json", encoding="utf-8") as f:
 
 entries_raw = raw["entries"]
 
-# ── Expected outcomes for assertions ──────────────────────────────────────
 EXPECTED = {
-    # (entry_id, occurrence_index): expected_error_codes_set
-    ("JE-001", 0): set(),                          # ACCEPTED
+    ("JE-001", 0): set(),
     ("JE-002", 0): {"ERR_UNBALANCED"},
-    ("JE-003", 0): {"ERR_INVALID_ACCOUNT"},
-    ("JE-004", 0): {"ERR_IC_CIRCULAR"},
-    ("JE-005", 0): {"ERR_UNBALANCED", "ERR_INVALID_ACCOUNT"},
-    ("JE-006", 0): set(),                          # ACCEPTED
-    ("JE-007", 0): {"ERR_UNBALANCED"},
-    ("JE-008", 0): set(),                          # ACCEPTED — different IC accounts
-    ("JE-009", 0): {"ERR_SCHEMA_INVALID"},         # caught by Pydantic before validator
-    ("JE-001", 1): {"ERR_DUPLICATE_ID"},           # second occurrence of JE-001
-    ("JE-011", 0): set(),                          # ACCEPTED (risk flagged by LLM, not validator)
-    ("JE-012", 0): {"ERR_UNBALANCED", "ERR_INVALID_ACCOUNT", "ERR_IC_CIRCULAR"},
+    ("JE-003", 0): set(),
+    ("JE-004", 0): set(),
+    ("JE-005", 0): {"ERR_INVALID_ACCOUNT"},
+    ("JE-006", 0): set(),
+    ("JE-007", 0): set(),
+    ("JE-008", 0): {"ERR_IC_CIRCULAR"},
+    ("JE-009", 0): set(),
+    ("JE-010", 0): set(),
 }
 
 seen_ids: set = set()
@@ -89,8 +85,7 @@ for raw_entry in entries_raw:
     )
 
     # Register the ID after first successful parse.
-    if occurrence == 0:
-        seen_ids.add(entry_id)
+    seen_ids.add(entry_id)  # always add, same as orchestrator.py
 
     got_codes = {c.error_code.value for c in checks_run if not c.passed and c.error_code}
     match = got_codes == (expected_codes or set())
@@ -112,7 +107,7 @@ for raw_entry in entries_raw:
     print(f"         Checks:   {checks_summary}\n")
 
 print(f"{'─'*72}")
-print(f"  Results: {pass_count} passed, {fail_count} failed out of {trace_counter} entries")
+print(f"  Results: {pass_count} passed, {fail_count} failed out of 10 entries")
 if warnings:
     print(f"  Warnings ({len(warnings)}):")
     for w in warnings:

@@ -441,8 +441,27 @@ def _build_handoff(
         if check.error_code:
             error_details[check.error_code.value] = check.detail
 
-    # Provide a sample of valid codes as guardrail for the LLM.
-    coa_sample = sorted(coa_index.keys())[:20]
+    # Collect invalid account codes from failing COA_LOOKUP check
+    invalid_account_codes = []
+    for check in checks_run:
+        if check.error_code and check.error_code.value == "ERR_INVALID_ACCOUNT":
+            for item in check.detail.get("invalid_codes", []):
+                invalid_account_codes.append(item.get("account_code", ""))
+
+    if invalid_account_codes:
+        # Sort valid COA codes by numeric proximity to the first invalid code,
+        # so the LLM sees accounts in the same range and can suggest corrections.
+        try:
+            pivot = int(invalid_account_codes[0])
+            coa_sample = sorted(
+                coa_index.keys(),
+                key=lambda c: abs(int(c) - pivot) if c.isdigit() else 999999
+            )[:20]
+        except (ValueError, TypeError):
+            coa_sample = sorted(coa_index.keys())[:20]
+    else:
+        # No invalid account error — alphabetical sample is fine
+        coa_sample = sorted(coa_index.keys())[:20]
 
     return ValidatorHandoff(
         trace_id=trace_id,
