@@ -25,8 +25,10 @@ env/
 *.env
 
 # ── Pipeline output — generated files (not source) ────────────────────────────
-output/validation_log.jsonl
-output/validation_results.json
+# The assignment explicitly requests that output artifacts (logs, traces) 
+# be included in the repo under /output.
+# output/validation_log.jsonl
+# output/validation_results.json
 
 # Keep the output directory itself
 !output/.gitkeep
